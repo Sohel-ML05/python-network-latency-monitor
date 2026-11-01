@@ -1,3 +1,6 @@
+## Dashboard Preview
+
+![Network Monitoring Dashboard](screenshots/Dashbord.png)
 # Python Network Latency and Packet Loss Monitoring Tool
 
 A Python-based network monitoring application that checks network
