@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetMonitor | Network Intelligence</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <span class="logo-icon">◉</span>
+            <div>
+                <h2>NetMonitor</h2>
+                <small>Network Intelligence Platform</small>
+            </div>
+        </div>
+
+        <nav>
+            <a class="active" href="#overview">⌂ Dashboard</a>
+
+            <p>SYSTEM ANALYSIS</p>
+            <a href="#connectivity">◈ Connectivity</a>
+            <a href="#latency">◉ Latency Analysis</a>
+            <a href="#packetloss">▤ Packet Loss</a>
+            <a href="#traceroute">⇢ Traceroute</a>
+
+            <p>MONITORING</p>
+            <a href="#history">▦ Monitoring History</a>
+            <a href="#alerts">⚠ Alerts & Events</a>
+            <a href="#reports">▤ CSV Reports</a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <h3>Network Insights</h3>
+            <p>Monitor. Analyze. Improve.</p>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <div class="search">
+                <span>⌕</span>
+                <span>Network Monitoring Dashboard</span>
+            </div>
+
+            <div class="user-info">
+                <span class="online-dot"></span>
+                System Ready
+                <span class="avatar">SS</span>
+                <span>Administrator</span>
+            </div>
+        </header>
+
+
+        <!-- WELCOME BANNER -->
+        <section class="welcome-banner" id="overview">
+
+            <div>
+                <h1>Network Intelligence Center 👋</h1>
+                <p>Monitor, analyze and manage your network performance.</p>
+            </div>
+
+            <div class="banner-tech">
+                <span>PYTHON</span>
+                <span>+</span>
+                <span>LINUX</span>
+                <span>+</span>
+                <span>NETWORKING</span>
+            </div>
+
+        </section>
+
+
+        <!-- MONITORING INPUT -->
+        <section class="monitor-panel">
+
+            <div>
+                <h3>Start Network Monitoring</h3>
+                <p>Enter an IP address to analyze network performance.</p>
+            </div>
+
+            <div class="monitor-controls">
+                <input
+                    type="text"
+                    id="targetIP"
+                    placeholder="Example: 8.8.8.8"
+                    value="8.8.8.8"
+                >
+
+                <button id="monitorBtn" onclick="startMonitoring()">
+                    ▶ Start Monitoring
+                </button>
+            </div>
+
+            <p id="monitorMessage">Ready to monitor.</p>
+
+        </section>
+
+
+        <!-- METRIC CARDS -->
+        <section class="metrics-grid">
+
+            <div class="metric-card" id="connectivity">
+                <span>NETWORK STATUS</span>
+                <h2 id="networkStatus">--</h2>
+                <small>Connectivity</small>
+            </div>
+
+            <div class="metric-card" id="latency">
+                <span>AVERAGE LATENCY</span>
+                <h2 id="averageLatency">--</h2>
+                <small>Milliseconds</small>
+            </div>
+
+            <div class="metric-card" id="packetloss">
+                <span>PACKET LOSS</span>
+                <h2 id="packetLoss">--</h2>
+                <small>Packet loss percentage</small>
+            </div>
+
+            <div class="metric-card">
+                <span>NETWORK QUALITY</span>
+                <h2 id="networkQuality">--</h2>
+                <small>Connection health</small>
+            </div>
+
+        </section>
+
+
+        <!-- ANALYSIS AREA -->
+        <section class="analysis-grid">
+
+            <div class="panel">
+                <h3>Latency Analysis</h3>
+                <p>Network response performance</p>
+                <canvas id="latencyChart"></canvas>
+            </div>
+
+            <div class="panel">
+                <h3>Packet Loss Analysis</h3>
+                <p>Packet delivery performance</p>
+                <canvas id="packetChart"></canvas>
+            </div>
+
+        </section>
+
+
+        <!-- TRACEROUTE -->
+        <section class="panel" id="traceroute">
+
+            <h3>Network Route Analysis</h3>
+            <p>Traceroute command output</p>
+
+            <pre id="tracerouteOutput">No traceroute data available.</pre>
+
+        </section>
+
+
+        <!-- ALERTS AND HISTORY -->
+        <section class="analysis-grid">
+
+            <div class="panel" id="alerts">
+                <h3>Network Alerts</h3>
+                <div id="alertOutput">
+                    <p>No alerts yet.</p>
+                </div>
+            </div>
+
+            <div class="panel" id="history">
+                <h3>Recent Monitoring Activity</h3>
+                <div id="historyOutput">
+                    <p>No monitoring activity yet.</p>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- REPORTS -->
+        <section class="panel" id="reports">
+            <h3>Network Reports</h3>
+            <p>Monitoring records are saved in:</p>
+            <code>reports/network_report.csv</code>
+        </section>
+
+
+        <footer>
+            NetMonitor · Python Network Monitoring Project
+        </footer>
+
+    </main>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
